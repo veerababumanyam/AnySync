@@ -24,10 +24,10 @@ Successful integration requires an understanding of regional market dynamics and
 
 ## 3. Integration Architecture: The Three-Plane Model
 
-To ensure security and operational integrity, the HIMS integration strictly adheres to the MediSync Three-Plane Architecture:
+To ensure security and operational integrity, the HIMS integration strictly adheres to the AnySync Three-Plane Architecture:
 
 ### 3.1 Data Plane (Strictly Read-Only)
-*   **Mechanism:** AI agents connect to HIMS databases and APIs strictly using the `medisync_readonly` role. 
+*   **Mechanism:** AI agents connect to HIMS databases and APIs strictly using the `AnySync_readonly` role. 
 *   **Data Ingestion:** Legacy HL7 v2 messages are intercepted, parsed, and mapped to FHIR R4 resources by a dedicated ETL Agent.
 *   **Validation:** All generated SQL or API queries are pre-validated to ensure they are `SELECT`-only (or read-equivalent HTTP GET requests) before execution.
 

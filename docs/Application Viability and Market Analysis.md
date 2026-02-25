@@ -50,7 +50,7 @@ The profitability of AnySync is driven by a superior **LTV:CAC** ratio compared 
 
 ## **Regulatory & Security Frameworks**
 
-AnySync adheres to the **MediSync Intelligence Standard**:
+AnySync adheres to the **AnySync Intelligence Standard**:
 - **Data Plane (Read-Only):** Strictly enforced via database roles and FastMCP protocols.
 - **Intelligence Plane (Masking):** Integration with **Microsoft Presidio** for PII masking (HIPAA/GDPR compliance).
 - **Action Plane (Audit):** All agentic decisions are logged to an immutable audit trail.

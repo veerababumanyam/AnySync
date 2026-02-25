@@ -1,6 +1,6 @@
 # AnySync Data Flows: Agentic Reporting Architecture
 
-This document details the architectural data flows for AnySync's reporting and analytics system, following the MediSync 3-Plane Architecture (Action, Intelligence, Data).
+This document details the architectural data flows for AnySync's reporting and analytics system, following the AnySync 3-Plane Architecture (Action, Intelligence, Data).
 
 ---
 
@@ -44,7 +44,7 @@ sequenceDiagram
 2.  **Intent Orchestration**: The **Orchestrator Agent** (Go/Genkit) breaks the request into a plan. It routes sub-tasks to specialized domain agents (e.g., Clinical Agent, Finance Agent).
 3.  **Secure Data Fetching**: Agents interact with **FastMCP Servers**. 
     - **FastMCP Protocol**: Enables dynamic tool discovery and execution for direct database interaction without intermediate APIs.
-    - **Security Rule**: Every query uses a `medisync_readonly` database role.
+    - **Security Rule**: Every query uses a `AnySync_readonly` database role.
     - **Privacy Rule**: **Microsoft Presidio** sidecars mask PII before the data reaches the Intelligence Plane.
 4.  **Analysis & Synthesis**: Domain agents don't just return data; they return **Narrative Insights** generated via Genkit (e.g., "Cardiology is up 15%, likely due to high cardiac camp volume").
 5.  **Generative Presentation**: **CopilotKit** maps the generic JSON data to specific "Liquid Glass" generative UI components (Charts, Tables, narrative summaries).

@@ -6,7 +6,7 @@ This document defines the cutting-edge open-source technology stack for **AnySyn
 
 ## 🏗️ Core Architecture (3-Plane Design)
 
-AnySync adheres to the MediSync architectural standard, ensuring separation of concerns across the enterprise AI ecosystem.
+AnySync adheres to the AnySync architectural standard, ensuring separation of concerns across the enterprise AI ecosystem.
 
 ### 1. Action Plane (Frontend & UI)
 The interactive interface for agents, data visualization, and human-in-the-loop (HITL) workflows.

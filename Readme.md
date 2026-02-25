@@ -53,7 +53,7 @@ AnySync follows a robust **Three-Plane Architecture** designed for security and 
 ### 1. Data Plane (Read-Only)
 - Strictly read-only access to legacy systems (ERP, HIS, SAP, etc.).
 - Direct database connectivity via **FastMCP** servers.
-- AI agents use the `medisync_readonly` role for absolute safety.
+- AI agents use the `AnySync_readonly` role for absolute safety.
 
 ### 2. Intelligence Plane (Orchestration)
 - Powered by **Google Genkit** and **CopilotKit**.
@@ -117,6 +117,12 @@ npm run dev
 
 ---
 
+## 📄 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+---
+
 <p align="center">
-  Built with ❤️ by the MediSync Advanced AI Team
+  Built with ❤️ by the AnySync Advanced AI Team
 </p>

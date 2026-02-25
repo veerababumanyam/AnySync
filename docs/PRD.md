@@ -1,8 +1,8 @@
 # AnySync Product Requirements Document (PRD)
 
-**Version:** 2.0.0
+**Version:** 2.1.0
 **Last Updated:** February 25, 2026
-**Status:** Draft — Agentic AI Platform Edition
+**Status:** Draft — Agentic AI Platform Edition (Reviewed)
 
 ---
 
@@ -11,6 +11,7 @@
 1. [Executive Summary](#1-executive-summary)
 2. [Product Vision](#2-product-vision)
 3. [Target Users & Personas](#3-target-users--personas)
+   - [3A: Competitive Landscape & Differentiation](#3a-competitive-landscape--differentiation)
 4. [Core Features](#4-core-features)
    - [F1: Conversational BI Interface](#f1-conversational-bi-interface)
    - [F2: Report Center](#f2-report-center)
@@ -20,6 +21,10 @@
    - [F6: Multi-Agent Enterprise Orchestration](#f6-multi-agent-enterprise-orchestration)
    - [F7: Agent Marketplace & Federation Hub](#f7-agent-marketplace--federation-hub)
    - [F8: LLM Gateway & Provider Connectivity](#f8-llm-gateway--provider-connectivity)
+   - [F9: User Onboarding & Data Source Setup](#f9-user-onboarding--data-source-setup)
+   - [F10: Error Handling & Graceful Degradation](#f10-error-handling--graceful-degradation)
+   - [F11: Multi-Tenancy & Tenant Isolation](#f11-multi-tenancy--tenant-isolation)
+   - [F12: Audit Trail & Compliance Logging](#f12-audit-trail--compliance-logging)
 5. [User Interface & Experience](#5-user-interface--experience)
 6. [Technical Architecture](#6-technical-architecture)
    - [6.1 System Architecture](#61-system-architecture)
@@ -30,11 +35,13 @@
    - [6.6 RAG Architecture](#66-rag-architecture)
    - [6.7 Universal Database Integration](#67-universal-database-integration)
    - [6.8 API Design](#68-api-design)
+   - [6.9 Core Data Model](#69-core-data-model)
 7. [Internationalization](#7-internationalization)
 8. [Security & Compliance](#8-security--compliance)
    - [8.3 Compliance Frameworks (HIPAA, SOC2, HITRUST, GDPR, ISO, NIST, EU AI Act)](#83-compliance-frameworks)
    - [8.4 Agentic AI Security (OWASP, Presidio PII, Agent Security)](#84-agentic-ai-security)
 9. [Accessibility](#9-accessibility)
+   - [9A: Non-Functional Requirements](#9a-non-functional-requirements)
 10. [Success Metrics](#10-success-metrics)
 11. [Roadmap](#11-roadmap)
 12. [Appendix](#12-appendix)
@@ -67,7 +74,7 @@ AnySync is an **Autonomous Enterprise AI Agent Platform** designed to perform **
 - **Autonomous task execution** across all existing enterprise applications via AI agents
 - **Unified LLM Gateway** for production-grade routing, caching, and failover across 10+ providers
 - **Agent-to-Agent federation** with Microsoft Copilot, SAP Joule, Salesforce AgentForce, ServiceNow, Databricks, and any A2A/MCP-compliant agent
-- **Direct database connectivity** to 20+ database types via MCP servers (SQL, NoSQL, warehouses, vector stores, graph, time-series)
+- **Direct database connectivity** to 30+ database types via MCP servers (SQL, NoSQL, warehouses, vector stores, graph, time-series)
 - **Enterprise RAG** (Retrieval Augmented Generation) with Agentic, Graph, Corrective, and Multimodal patterns
 - Natural language queries and actions in English & Arabic
 - Instant visual insights (charts, tables, dashboards) with generative UI
@@ -111,7 +118,7 @@ AnySync is an **Autonomous Enterprise AI Agent Platform** designed to perform **
 
 ### 2.1 Vision Statement
 
-> *"Democratize data access across the organization. Every team member, regardless of technical skill, should be able to ask questions and get answers from their data within seconds."*
+> *"Be the universal hub where AI agents from every vendor, framework, and protocol meet to autonomously execute enterprise tasks — while democratizing data access so every team member, regardless of technical skill, can ask questions and get answers within seconds, with full human oversight, security, and auditability."*
 
 ### 2.2 Strategic Goals
 
@@ -119,6 +126,8 @@ AnySync is an **Autonomous Enterprise AI Agent Platform** designed to perform **
 2. **Enable Data-Driven Decisions** — Empower non-technical staff to perform complex analytics instantly
 3. **Unify Data Sources** — Create a single source of truth from disparate legacy systems
 4. **Accelerate Insights** — Reduce time-to-insight from days to seconds
+5. **Autonomous Agent Orchestration** — Deploy AI agents that plan, reason, and execute multi-step tasks across all enterprise applications
+6. **Universal Agent Federation** — Connect every enterprise AI ecosystem (Copilot, Joule, AgentForce, ServiceNow, Databricks) through open protocols (A2A, MCP)
 
 ### 2.3 Design Philosophy
 
@@ -178,6 +187,39 @@ So that reporting happens automatically without manual effort.
 As a medical director, I want to set an alert when patient wait times exceed 30 minutes
 So that I can address operational issues proactively.
 ```
+
+---
+
+## 3A. Competitive Landscape & Differentiation
+
+### 3A.1 Market Context
+
+The enterprise BI and AI agent space is crowded, with incumbents adding AI capabilities and new entrants building agent-first platforms. AnySync's differentiation lies in combining conversational BI with multi-agent orchestration and open protocol support — a combination no single competitor currently offers.
+
+### 3A.2 Competitive Matrix
+
+| Capability | AnySync | Power BI + Copilot | Tableau + Einstein | ThoughtSpot | Google Looker | Moveworks | ServiceNow AI |
+|-----------|---------|--------------------|--------------------|-------------|---------------|-----------|---------------|
+| Conversational BI | Yes | Yes | Yes | Yes | Partial | No | No |
+| Multi-Agent Orchestration | Yes (multi-framework) | Limited (Copilot only) | Limited (Einstein) | No | Partial (Gemini) | Yes (IT-focused) | Yes (ITSM-focused) |
+| A2A Protocol Support | Native | No | No | No | Planned | No | No |
+| MCP Protocol Support | Native | Planned | No | No | No | No | No |
+| External Agent Federation | 5+ ecosystems | Microsoft only | Salesforce only | None | Google only | Limited | ServiceNow only |
+| Enterprise RAG (multi-pattern) | 8 patterns | Basic | Basic | Basic | Vertex AI Search | Basic | Basic |
+| Universal Database Access | 30+ types via MCP | Microsoft stack | Salesforce stack | Limited | Google stack | N/A | N/A |
+| Healthcare Focus (HIPAA) | Primary | Add-on | Add-on | No | Add-on | No | Partial |
+| Visual Agent Builder | LangFlow | Copilot Studio | Agent Builder | No | No | Workflow Studio | AI Agent Studio |
+| Arabic/RTL Support | Native | Partial | Partial | No | Partial | No | Partial |
+
+### 3A.3 Key Differentiators
+
+| Differentiator | Why It Matters |
+|---------------|----------------|
+| **Protocol-Native (A2A + MCP)** | Only platform with native support for both open agent communication standards, avoiding vendor lock-in |
+| **Multi-Framework Agent Runtime** | Supports 8+ agent frameworks (ADK, Genkit, Claude SDK, MS Agent 365, CrewAI, etc.) — customers aren't locked to one vendor's agent ecosystem |
+| **Healthcare-First Compliance** | HIPAA/HITRUST/SOC2 built-in from day one, not bolted on — critical for target market |
+| **Federation Hub Model** | Bidirectional agent collaboration with 5+ enterprise AI ecosystems, not just one-way integration |
+| **Presidio PII Admin** | Admin-configurable PII detection and anonymization — unique for healthcare data platforms |
 
 ---
 
@@ -806,41 +848,6 @@ AI: [Displays table] "عدد المرضى في يناير 2026: 1,247 مريض.
 | Threshold | "Alert when daily revenue drops below $10,000" |
 | Trend | "Alert if patient volume decreases >10% week-over-week" |
 | Anomaly | "Alert on unusual patterns in claim submissions" |
-
----
-
-#### F8: LLM Gateway & Provider Connectivity
-
-| Attribute | Specification |
-|-----------|---------------|
-| **ID** | F8 |
-| **Priority** | P0 (Critical) |
-| **Description** | Centralized management of LLM providers with automatic routing and failover. |
-
-**Functional Requirements:**
-
-| ID | Requirement | Acceptance Criteria |
-|----|-------------|---------------------|
-| F8.1 | Multi-Provider Support | Native integration with OpenAI, Anthropic, Google Gemini, Grok, Ollama, LMStudio, and OpenRouter. |
-| F8.2 | Unified API Endpoint | Standardized request/response format (OpenAI-compatible) for all downstream providers. |
-| F8.3 | Dynamic Routing | Route requests based on model availability, cost, latency, or specific agent requirements. |
-| F8.4 | Semantic Caching | Cache common semantic queries to reduce latency and cost (Redis-backed). |
-| F8.5 | Resilience & Failover | Automatic failover to secondary providers (e.g., Anthropic to OpenAI) if primary is down. |
-| F8.6 | Usage & Cost Tracking | Track tokens, latency, and cost per agent, per user, and per department. |
-| F8.7 | Local LLM Support | Seamlessly bridge to local instances via Ollama and LMStudio for sensitive data processing. |
-
-**Provider Ecosystem:**
-
-| Provider | Access Mode | Primary Use Case |
-|----------|-------------|------------------|
-| **Anthropic** | Direct API | Complex reasoning, large context (Claude 3.7) |
-| **OpenAI** | Direct API | General purpose agents, function calling |
-| **Google Gemini** | Direct / Genkit | Multimodal tasks, large context (2M+ tokens) |
-| **Grok (xAI)** | Direct API | Real-time context, high-performance reasoning |
-| **OpenRouter** | Gateway | Access to 100+ open-source models (DeepSeek, Llama 3) |
-| **Ollama / LMStudio**| Local | On-premise processing, air-gapped environments |
-
----
 | Schedule | "Alert when scheduled report fails to generate" |
 
 ---
@@ -921,7 +928,7 @@ AI: [Displays table] "عدد المرضى في يناير 2026: 1,247 مريض.
 | F6.7 | Visual Flow Building | LangFlow drag-and-drop node-based AI workflow designer supporting MCP client/server and multi-agent orchestration. |
 | F6.8 | Agent Observability | Deep AgentOps, LangSmith, LangFuse integration: replay analytics, LLM cost management, benchmarking, failure detection, prompt injection detection. |
 | F6.9 | Enterprise RAG | Support Simple, Adaptive, Corrective (CRAG), Graph, Agentic, Self-RAG, Multimodal, and Streaming RAG patterns. |
-| F6.10 | Universal Database Access | Direct MCP-based connectivity to 20+ database types: relational, NoSQL, data warehouses, vector stores, graph, time-series. |
+| F6.10 | Universal Database Access | Direct MCP-based connectivity to 30+ database types: relational, NoSQL, data warehouses, vector stores, graph, time-series. |
 | F6.11 | HITL (Human-in-the-loop) | Strict human approval for all Write operations on the Action Plane; full immutable audit trail. |
 | F6.12 | Agent Memory & State | Session-level working memory and cross-session long-term recall to prevent context amnesia. |
 | F6.13 | Agent Cards Publishing | AnySync agents publish Agent Cards at `/.well-known/agent-card.json` for discovery by external systems. |
@@ -990,6 +997,128 @@ AI: [Displays table] "عدد المرضى في يناير 2026: 1,247 مريض.
 | **Copilot Relay Agent** | Proxies requests to/from Microsoft Copilot | MS Agent 365 SDK |
 | **SAP Bridge Agent** | Bridges Joule agents for SAP data tasks | SAP Cloud SDK, A2A |
 | **Salesforce Bridge Agent** | Federates with AgentForce via Agent API | AgentForce SDK, A2A |
+
+---
+
+#### F8: LLM Gateway & Provider Connectivity
+
+| Attribute | Specification |
+|-----------|---------------|
+| **ID** | F8 |
+| **Priority** | P0 (Critical) |
+| **Description** | Centralized management of LLM providers with automatic routing and failover. |
+
+**Functional Requirements:**
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| F8.1 | Multi-Provider Support | Native integration with OpenAI, Anthropic, Google Gemini, Grok, Ollama, LMStudio, and OpenRouter. |
+| F8.2 | Unified API Endpoint | Standardized request/response format (OpenAI-compatible) for all downstream providers. |
+| F8.3 | Dynamic Routing | Route requests based on model availability, cost, latency, or specific agent requirements. |
+| F8.4 | Semantic Caching | Cache common semantic queries to reduce latency and cost (Redis-backed). |
+| F8.5 | Resilience & Failover | Automatic failover to secondary providers (e.g., Anthropic to OpenAI) if primary is down. |
+| F8.6 | Usage & Cost Tracking | Track tokens, latency, and cost per agent, per user, and per department. |
+| F8.7 | Local LLM Support | Seamlessly bridge to local instances via Ollama and LMStudio for sensitive data processing. |
+
+**Provider Ecosystem:**
+
+| Provider | Access Mode | Primary Use Case |
+|----------|-------------|------------------|
+| **Anthropic** | Direct API | Complex reasoning, large context (Claude 4 Sonnet/Opus) |
+| **OpenAI** | Direct API | General purpose agents, function calling |
+| **Google Gemini** | Direct / Genkit | Multimodal tasks, large context (2M+ tokens) |
+| **Grok (xAI)** | Direct API | Real-time context, high-performance reasoning |
+| **OpenRouter** | Gateway | Access to 100+ open-source models (DeepSeek, Llama 4) |
+| **Ollama / LMStudio**| Local | On-premise processing, air-gapped environments |
+
+---
+
+### 4.3 Cross-Cutting Functional Requirements
+
+#### F9: User Onboarding & Data Source Setup
+
+| Attribute | Specification |
+|-----------|---------------|
+| **ID** | F9 |
+| **Priority** | P0 (Critical) |
+| **Description** | Guided onboarding flow for new tenants, users, and data source connections |
+
+**Functional Requirements:**
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| F9.1 | Tenant Setup Wizard | Step-by-step wizard for organization registration, branding, and initial configuration |
+| F9.2 | Data Source Connection | Guided UI to connect databases, APIs, and enterprise systems with connection testing |
+| F9.3 | Schema Discovery | Automatic schema introspection and table/column description prompts for NL query accuracy |
+| F9.4 | Sample Queries | Auto-generated sample queries based on discovered schema to validate setup |
+| F9.5 | Role & Permission Setup | Initial admin configures roles, departments, and data access policies |
+| F9.6 | Agent Activation | Select and configure pre-built agent templates during onboarding |
+| F9.7 | Health Check Dashboard | Post-setup verification showing connection status, data freshness, and agent readiness |
+
+---
+
+#### F10: Error Handling & Graceful Degradation
+
+| Attribute | Specification |
+|-----------|---------------|
+| **ID** | F10 |
+| **Priority** | P0 (Critical) |
+| **Description** | Consistent error handling, user-facing error messages, and graceful degradation across all features |
+
+**Functional Requirements:**
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| F10.1 | Query Error Recovery | When NL-to-SQL fails, AI explains what went wrong and suggests rephrased queries |
+| F10.2 | Data Source Unavailability | Cached results served when live data source is unreachable; user notified of staleness |
+| F10.3 | LLM Provider Failover | Transparent failover to secondary LLM provider with no user-visible interruption (via F8) |
+| F10.4 | Agent Task Failure | Failed agent tasks provide clear error context, partial results where available, and retry option |
+| F10.5 | Rate Limit Handling | User-facing feedback when rate limits are hit, with estimated wait time and queue position |
+| F10.6 | Timeout Management | Long-running queries/tasks show progress indicators; users can cancel and receive partial results |
+| F10.7 | Error Categorization | All errors classified as: user-fixable, admin-fixable, or system-level with appropriate messaging |
+
+---
+
+#### F11: Multi-Tenancy & Tenant Isolation
+
+| Attribute | Specification |
+|-----------|---------------|
+| **ID** | F11 |
+| **Priority** | P0 (Critical) |
+| **Description** | Full tenant isolation for data, agents, configurations, and billing |
+
+**Functional Requirements:**
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| F11.1 | Data Isolation | Each tenant's data is logically isolated at the database level (schema-per-tenant or row-level security) |
+| F11.2 | Agent Isolation | Tenant agents cannot access other tenants' data, tools, or memory |
+| F11.3 | Configuration Isolation | Tenant-specific branding, PII rules, alert thresholds, and LLM provider preferences |
+| F11.4 | Billing Isolation | Per-tenant usage tracking for LLM tokens, storage, compute, and agent invocations |
+| F11.5 | Admin Hierarchy | Super-admin (platform), Tenant-admin, Department-admin, User roles |
+| F11.6 | Tenant Provisioning | API-driven tenant creation with automated database, agent, and configuration bootstrapping |
+
+---
+
+#### F12: Audit Trail & Compliance Logging
+
+| Attribute | Specification |
+|-----------|---------------|
+| **ID** | F12 |
+| **Priority** | P0 (Critical) |
+| **Description** | Immutable audit trail for all user actions, agent operations, and data access events |
+
+**Functional Requirements:**
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| F12.1 | User Action Logging | Every user action (query, report creation, dashboard edit, alert config) logged with timestamp, user ID, and context |
+| F12.2 | Agent Action Logging | Every agent invocation, tool call, LLM request, and decision logged with full trace |
+| F12.3 | Data Access Logging | Every database query logged with SQL text, result count, duration, and requesting agent/user |
+| F12.4 | HITL Approval Logging | All human-in-the-loop approval/rejection events logged with approver identity and rationale |
+| F12.5 | Immutability | Audit logs are append-only, tamper-evident, and stored separately from operational data |
+| F12.6 | Audit Search & Export | Admin UI to search, filter, and export audit logs for compliance reviews |
+| F12.7 | Retention Policies | Configurable retention per compliance framework (HIPAA: 6 years minimum, GDPR: as specified in DPIA) |
 
 ---
 
@@ -1149,7 +1278,7 @@ AI: [Displays table] "عدد المرضى في يناير 2026: 1,247 مريض.
 | **UI Components** | Vanilla CSS ("Liquid Glass"), Radix UI | Premium design, accessibility |
 | **State Management** | Zustand, React Query | Simplicity, server state handling |
 | **Frontend AI** | CopilotKit | Generative UI and frontend co-pilot interface |
-| **Backend** | Go 1.26+ | Performance, concurrency |
+| **Backend** | Go 1.26+ | Performance, concurrency, Green Tea GC |
 | **AI Agent Frameworks** | Google ADK, Google Genkit | Multi-agent hierarchies, typed AI flows, 100+ connectors |
 | **AI Agent SDKs** | Claude Agent SDK, MS Agent 365 SDK, OpenAI Agents SDK | Multi-vendor agent ecosystem integration |
 | **Multi-Agent Orchestration** | CrewAI, AutoGen, LangChain/LangGraph | Role-based crews, graph workflows, conversational agents |
@@ -1157,7 +1286,7 @@ AI: [Displays table] "عدد المرضى في يناير 2026: 1,247 مريض.
 | **Agent Observability** | AgentOps, LangSmith, LangFuse | Replay analytics, cost mgmt, benchmarking, failure detection |
 | **Interop Protocols** | Google A2A (v0.3+), Anthropic MCP (FastMCP v3.0) | Agent-to-Agent and Agent-to-Tool/Data standards |
 | **RAG Infrastructure** | Vector store (pgvector/Pinecone), Embedding models | Enterprise knowledge grounding |
-| **Database (Primary)** | PostgreSQL 16 + pgvector | Relational data, JSON support, vector search |
+| **Database (Primary)** | PostgreSQL 18 + pgvector | Relational data, JSON support, vector search, 3× I/O performance |
 | **Caching** | Redis 7.4+ | Session, semantic caching, query result caching |
 | **File Storage** | MinIO/S3 | Report storage, exports |
 | **Auth** | Keycloak | Enterprise SSO, OIDC |
@@ -1482,7 +1611,7 @@ AnySync agents connect directly to enterprise databases via MCP servers, elimina
  │  Security Layer:                                   │
  │  ┌──────────────────────────────────────────────┐  │
  │  │ ● SELECT-only validation (Data Plane)        │  │
- │  │ ● Read-only DB role (medisync_readonly)      │  │
+ │  │ ● Read-only DB role (AnySync_readonly)      │  │
  │  │ ● Query cost estimation & timeout            │  │
  │  │ ● PII column masking by role                 │  │
  │  │ ● Audit log for every query                  │  │
@@ -1505,7 +1634,7 @@ AnySync agents connect directly to enterprise databases via MCP servers, elimina
 
 | Control | Description |
 |---------|-------------|
-| **Read-Only Enforcement** | All agent database access uses `medisync_readonly` role; no INSERT/UPDATE/DELETE |
+| **Read-Only Enforcement** | All agent database access uses `AnySync_readonly` role; no INSERT/UPDATE/DELETE |
 | **Query Allowlisting** | Agent-generated SQL validated against allowlist of safe patterns |
 | **Column-Level Masking** | PII columns (patient names, SSNs, etc.) masked based on user role |
 | **Row-Level Security** | Results filtered based on user's department/facility access |
@@ -1550,6 +1679,82 @@ AnySync agents connect directly to enterprise databases via MCP servers, elimina
 |----------|---------|
 | `/copilotkit` | Main AI chat endpoint |
 | `/copilotkit/info` | Agent information |
+
+---
+
+### 6.9 Core Data Model
+
+The following entities represent the primary data model for the AnySync platform. All entities include standard audit fields (`created_at`, `updated_at`, `created_by`).
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          CORE DATA MODEL                                      │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────────────┐  │
+│  │   Tenant     │───▶│    User     │───▶│    Role     │───▶│  Permission  │  │
+│  │             │    │             │    │             │    │              │  │
+│  │ id          │    │ id          │    │ id          │    │ id           │  │
+│  │ name        │    │ tenant_id   │    │ tenant_id   │    │ resource     │  │
+│  │ branding    │    │ email       │    │ name        │    │ action       │  │
+│  │ config      │    │ keycloak_id │    │ permissions │    │ scope        │  │
+│  └─────────────┘    │ department  │    └─────────────┘    └──────────────┘  │
+│        │            │ locale      │                                          │
+│        │            └─────────────┘                                          │
+│        │                                                                      │
+│        ▼                                                                      │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────────────┐  │
+│  │ DataSource   │───▶│   Agent    │───▶│  AgentTask  │───▶│  AuditLog    │  │
+│  │             │    │             │    │             │    │              │  │
+│  │ id          │    │ id          │    │ id          │    │ id           │  │
+│  │ tenant_id   │    │ tenant_id   │    │ agent_id    │    │ tenant_id    │  │
+│  │ type        │    │ framework   │    │ user_id     │    │ entity_type  │  │
+│  │ connection  │    │ agent_card  │    │ status      │    │ entity_id    │  │
+│  │ schema_cache│    │ mcp_tools   │    │ input       │    │ action       │  │
+│  │ health      │    │ guardrails  │    │ output      │    │ actor_id     │  │
+│  └─────────────┘    │ version     │    │ trace_id    │    │ details      │  │
+│                     └─────────────┘    │ cost        │    │ timestamp    │  │
+│                                        └─────────────┘    └──────────────┘  │
+│                                                                               │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────────────┐  │
+│  │  Dashboard   │───▶│   Widget   │    │   Report    │    │    Alert     │  │
+│  │             │    │             │    │             │    │              │  │
+│  │ id          │    │ id          │    │ id          │    │ id           │  │
+│  │ tenant_id   │    │ dashboard_id│    │ tenant_id   │    │ tenant_id    │  │
+│  │ owner_id    │    │ type        │    │ template_id │    │ query        │  │
+│  │ layout      │    │ query       │    │ schedule    │    │ threshold    │  │
+│  │ filters     │    │ config      │    │ recipients  │    │ channels     │  │
+│  │ shared_with │    │ position    │    │ last_run    │    │ escalation   │  │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └──────────────┘  │
+│                                                                               │
+│  ┌─────────────┐    ┌──────────────┐                                         │
+│  │ QueryHistory │    │ FederatedAgent│                                        │
+│  │             │    │              │                                          │
+│  │ id          │    │ id           │                                          │
+│  │ tenant_id   │    │ tenant_id    │                                          │
+│  │ user_id     │    │ agent_card_url│                                         │
+│  │ nl_query    │    │ protocol     │                                          │
+│  │ sql_text    │    │ provider     │                                          │
+│  │ result_hash │    │ auth_config  │                                          │
+│  │ duration_ms │    │ health       │                                          │
+│  └─────────────┘    └──────────────┘                                         │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Key Relationships:**
+
+| Relationship | Type | Description |
+|-------------|------|-------------|
+| Tenant → User | 1:N | Each tenant has many users |
+| Tenant → DataSource | 1:N | Each tenant connects to multiple data sources |
+| Tenant → Agent | 1:N | Each tenant deploys multiple agents |
+| Agent → AgentTask | 1:N | Each agent handles many tasks |
+| User → Dashboard | 1:N | Users own dashboards |
+| Dashboard → Widget | 1:N | Dashboards contain widgets |
+| User → QueryHistory | 1:N | Query audit trail per user |
+| Tenant → FederatedAgent | 1:N | External agents registered per tenant |
+| All entities → AuditLog | N:1 | Every mutation is audit-logged |
 
 ---
 
@@ -1720,7 +1925,7 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 | **Transport** | TLS 1.3 for all traffic; mTLS for A2A inter-agent communication |
 | **Authentication** | Keycloak OIDC/OAuth 2.0; API keys for machine-to-machine; agent identity certificates |
 | **Authorization** | RBAC with per-agent permission scopes; attribute-based access for data queries |
-| **Data Plane** | Read-only enforcement; `medisync_readonly` DB role; query validation; cost gates |
+| **Data Plane** | Read-only enforcement; `AnySync_readonly` DB role; query validation; cost gates |
 | **Action Plane** | HITL approval queue; write operation audit; human escalation triggers |
 | **Agent Isolation** | Each agent runs in isolated context; no shared memory between unrelated agents |
 | **Secrets Management** | Vault-based secret injection; no credentials in agent prompts or logs |
@@ -1751,11 +1956,66 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 
 ### 9.3 Target Standards
 
-| Standard | Level |
-|----------|-------|
-| WCAG 2.1 | AAA |
-| WCAG 3.0 (draft) | Full compliance |
-| Section 508 | Compliant |
+| Standard | Level | Notes |
+|----------|-------|-------|
+| WCAG 2.1 | AA (minimum), AAA (target) | AA is the industry baseline; AAA is aspirational for select components |
+| WCAG 3.0 (working draft) | Bronze | WCAG 3.0 uses Bronze/Silver/Gold scoring, not A/AA/AAA. Bronze is the baseline conformance level. |
+| Section 508 | Compliant | Required for US government healthcare contracts |
+
+---
+
+## 9A. Non-Functional Requirements
+
+### 9A.1 Performance Requirements
+
+| Metric | Target | Condition |
+|--------|--------|-----------|
+| **NL Query Response Time** | < 3 seconds (p95) | Simple queries against indexed data |
+| **Complex Query Response Time** | < 10 seconds (p95) | Multi-join queries, aggregations |
+| **Agent Task Completion** | < 30 seconds (p95) | Single-step agent tasks |
+| **Multi-Agent Workflow** | < 120 seconds (p95) | Multi-step orchestrated tasks |
+| **Dashboard Load Time** | < 2 seconds | With up to 10 widgets |
+| **Report Generation** | < 15 seconds | Standard templates, up to 50 pages |
+| **API Gateway Latency** | < 100ms overhead | Proxy overhead excluding upstream |
+| **RAG Retrieval Latency** | < 500ms (p95) | Vector similarity search + re-ranking |
+| **A2A/MCP Message Latency** | < 200ms (p95) | Inter-agent protocol overhead |
+| **LLM Gateway Routing** | < 50ms | Provider selection and request forwarding |
+
+### 9A.2 Scalability Requirements
+
+| Dimension | Target | Notes |
+|-----------|--------|-------|
+| **Concurrent Users** | 500 per tenant (MVP), 5,000 (Phase 5) | WebSocket connections for real-time |
+| **Concurrent Agent Tasks** | 100 per tenant | With queuing and backpressure |
+| **Database Connections** | 50 pooled connections per data source | Connection pooling via pgBouncer |
+| **Tenants** | 50 (Phase 3), 500 (Phase 5) | Multi-tenant isolation |
+| **Data Volume** | Up to 10TB per tenant | Across connected data sources |
+| **Vector Store** | 10M embeddings per tenant | pgvector with HNSW indexing |
+| **Agent Registry** | 1,000 registered agents | Internal + federated |
+| **Report Storage** | 100GB per tenant | S3/MinIO with lifecycle policies |
+
+### 9A.3 Availability & Disaster Recovery
+
+| Requirement | Target | Implementation |
+|-------------|--------|----------------|
+| **Uptime SLA** | 99.9% (MVP), 99.95% (Phase 5) | Multi-AZ deployment |
+| **RTO (Recovery Time Objective)** | < 1 hour | Automated failover, Kubernetes self-healing |
+| **RPO (Recovery Point Objective)** | < 15 minutes | Streaming replication, point-in-time recovery |
+| **Backup Frequency** | Daily full + continuous WAL archiving | PostgreSQL + S3 |
+| **Cross-Region DR** | Active-passive (Phase 5) | Async replication to secondary region |
+| **Data Retention** | Configurable per tenant (default: 7 years for healthcare) | Compliance-driven retention policies |
+| **Circuit Breakers** | Per-agent, per-data-source, per-LLM-provider | Prevent cascading failures |
+| **Graceful Degradation** | Core BI functional without agent orchestration | Layered service architecture |
+
+### 9A.4 Observability Requirements
+
+| Capability | Implementation | Coverage |
+|-----------|----------------|----------|
+| **Distributed Tracing** | OpenTelemetry | All service-to-service calls, agent invocations |
+| **Metrics** | Prometheus + Grafana | System health, business KPIs, agent performance |
+| **Logging** | Structured JSON logs, centralized aggregation | All services, audit events |
+| **Agent Observability** | AgentOps, LangSmith | Replay analytics, cost tracking, failure detection |
+| **Alerting** | PagerDuty / OpsGenie integration | SLA breaches, error rate spikes, agent anomalies |
 
 ---
 
@@ -1795,6 +2055,9 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 | English language support | Full UI and AI responses |
 | 3 legacy system connectors | ERP, HIS, Finance |
 | Google Genkit flows | Core AI agent with typed flows |
+| Tenant onboarding wizard (F9) | Setup wizard, data source connection, schema discovery |
+| Error handling framework (F10) | Query error recovery, timeout management, error categorization |
+| Single-tenant foundation (F11) | Core tenant model with data isolation groundwork |
 
 ### Phase 2: Enhanced Analytics + Agent Core
 
@@ -1809,6 +2072,9 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 | Export engine | PDF, Excel, CSV exports |
 | MCP Server (Data) | Expose AnySync data as MCP Resources/Tools |
 | PII Admin Panel | Microsoft Presidio integration with configurable PII settings |
+| Audit trail system (F12) | Immutable audit logging for all user/agent actions |
+| Multi-tenancy (F11) | Full tenant isolation, billing isolation, admin hierarchy |
+| LLM failover & degradation (F10) | Provider failover, graceful degradation, cached fallbacks |
 
 ### Phase 3: Multi-Agent Orchestration
 
@@ -1903,6 +2169,7 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
+| 2.1.0 | 2026-02-25 | AnySync Team | PRD review and gap closure: Added competitive positioning (3A), cross-cutting features F9–F12 (onboarding, error handling, multi-tenancy, audit trail), non-functional requirements (9A), core data model (6.9). Fixed feature ordering (F8), version inconsistencies, accessibility targets, vision alignment. |
 | 2.0.0 | 2026-02-25 | AnySync Team | Agentic AI Platform Edition: A2A/MCP protocols, enterprise agent federation, RAG architecture, universal database integration, OWASP agentic security, Presidio PII admin, agent marketplace, expanded compliance |
 | 1.1.0 | 2026-02-24 | AnySync Team | Added detailed report specifications: charts, maps, tables, advanced visualizations, interactive features, and export capabilities |
 | 1.0.0 | 2026-02-24 | AnySync Team | Initial PRD |

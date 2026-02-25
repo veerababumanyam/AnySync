@@ -11,17 +11,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Protocol Standardization**: Native support for A2A, MCP, and Agent Cards
 - **External Agent Federation**: Bidirectional integration with MS Copilot, SAP Joule, Salesforce AgentForce
 - **Enterprise RAG**: Advanced RAG patterns (Adaptive, Corrective, Graph)
-- **Universal Database Integration**: Direct access to 180+ databases and data lakes
+- **Universal Database Integration**: Direct access to 30+ database types (SQL, NoSQL, warehouses, vector stores, graph, time-series, data lakes)
 - **Healthcare-Focused Security**: HIPAA/GDPR compliance with Microsoft Presidio PII management
 
 ### Current Status
-- **Documentation Phase**: PRD v2.0.0 and design system completed
+- **Documentation Phase**: PRD v2.1.0 and design system completed
 - **Implementation Readiness**: Core platform architecture and security standards defined
 
 ## Documentation Structure
 
 ### `/docs/PRD.md` - Product Requirements Document
-- Version 2.0.0 (last updated Feb 25, 2026)
+- Version 2.1.0 (last updated Feb 25, 2026)
 - Agentic AI Platform Edition: A2A/MCP protocols, external federation, RAG architecture
 - Security: OWASP Top 10 for Agentic Applications, Presidio PII admin
 - Technical Architecture: Universal database integration, Text-to-SQL codes
