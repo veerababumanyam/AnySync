@@ -1,4 +1,4 @@
-# <p align="center">AnySync</p>
+# <p align="center"><img src="public/logo.png" alt="AnySync Logo" width="60"><br>AnySync</p>
 
 <p align="center">
   <strong>Agentic AI Enterprise Orchestration Platform</strong><br>
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="/Users/v13478/.gemini/antigravity/brain/ef707e84-f9dc-46a2-9dd7-92bc137dd948/anysync_hero_dashboard_1772016845771.png" alt="AnySync Hero Dashboard" width="800">
+  <img src="public/assets/hero-dashboard.png" alt="AnySync Hero Dashboard" width="800">
 </p>
 
 <p align="center">
