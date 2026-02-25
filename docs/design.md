@@ -1,8 +1,8 @@
-# AnySync Design System v2.0.0
+# AnySync Design System v0.0.1
 
 **iOS 26 Liquid Glass · WCAG 3.0 Bronze · Light + Dark Modes · RTL Support**
 
-Version 2.0.0 · February 25, 2026
+Version 0.0.1 · February 25, 2026
 
 ---
 
@@ -2935,7 +2935,7 @@ For each component, document:
 
 ---
 
-*AnySync Design System v2.0.0 · February 25, 2026*
+*AnySync Design System v0.0.1 · February 25, 2026*
 
 **Changelog:**
 - Added Section 21: Design Token Architecture

@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Validated_v2.0.0-15C068?style=flat-square" alt="Status Badge">
+  <img src="https://img.shields.io/badge/Status-Validated_v0.0.1-15C068?style=flat-square" alt="Status Badge">
   <img src="https://img.shields.io/badge/Architecture-Three--Plane-2D52A8?style=flat-square" alt="Architecture Badge">
   <img src="https://img.shields.io/badge/Protocol-A2A%20%7C%20MCP-0E9F98?style=flat-square" alt="Protocol Badge">
   <img src="https://img.shields.io/badge/Security-HIPAA_Ready-green?style=flat-square" alt="Security Badge">

@@ -2170,7 +2170,7 @@ Administrators have a dedicated PII Configuration section in the admin panel wit
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 2.1.0 | 2026-02-25 | AnySync Team | PRD review and gap closure: Added competitive positioning (3A), cross-cutting features F9–F12 (onboarding, error handling, multi-tenancy, audit trail), non-functional requirements (9A), core data model (6.9). Fixed feature ordering (F8), version inconsistencies, accessibility targets, vision alignment. |
-| 2.0.0 | 2026-02-25 | AnySync Team | Agentic AI Platform Edition: A2A/MCP protocols, enterprise agent federation, RAG architecture, universal database integration, OWASP agentic security, Presidio PII admin, agent marketplace, expanded compliance |
+| 0.0.1 | 2026-02-25 | AnySync Team | Agentic AI Platform Edition: A2A/MCP protocols, enterprise agent federation, RAG architecture, universal database integration, OWASP agentic security, Presidio PII admin, agent marketplace, expanded compliance |
 | 1.1.0 | 2026-02-24 | AnySync Team | Added detailed report specifications: charts, maps, tables, advanced visualizations, interactive features, and export capabilities |
 | 1.0.0 | 2026-02-24 | AnySync Team | Initial PRD |
 
